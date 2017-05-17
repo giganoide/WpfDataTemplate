@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfDataTemplateApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDataTemplateApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:Fresa}">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Left" Text="Ciao  " />
+                <TextBlock Text="{Binding TypeLabel}" Foreground="Red" />
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Tornio}">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Right" Text="{Binding Prova}"  />
+                <TextBlock Text="{Binding TypeLabel}" Foreground="Green" FontWeight="Bold"/>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Combinato}">
+            <TextBlock Text="{Binding TypeLabel}" Foreground="Blue" FontSize="15" />
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <TextBlock DockPanel.Dock="Top" Text="Lista di oggetti diversi" />
+        <ItemsControl ItemsSource="{Binding ListSource}" Background="Aqua" />
+    </DockPanel>
+</Window>
